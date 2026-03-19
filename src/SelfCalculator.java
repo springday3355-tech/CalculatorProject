@@ -39,9 +39,10 @@ public class SelfCalculator {
                 case '/':
                     if (secondNum == 0) {
                         System.out.println("0이 입력될 수 없습니다.");
-                        return;
+                        success = false; // return -> success를 false로
+                    } else {
+                        result = firstNum / secondNum;
                     }
-                    result = firstNum / secondNum;
                     break;
 
                 default:
