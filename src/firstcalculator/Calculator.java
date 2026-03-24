@@ -22,10 +22,11 @@ public class Calculator {
                 result = firstNum * secondNum;
                 break;
             case '/':
-                if (secondNum == 0) {
+                if (secondNum != 0) {
                     result = firstNum / secondNum;
                 } else {
-                    System.out.println("0이 입력될 수 없습니다.");
+                    System.out.println("0으로 나눌 수 없습니다.");
+                    return 0;
                 }
                 break;
         }
