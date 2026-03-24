@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calculator {
     // 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성
-    private List<Integer> results = new ArrayList<>();
+    private final List<Integer> results = new ArrayList<>();
 
     // 사칙 연산을 수행 후 결과값 반환하는 메서드 구현
     public int calculate(int firstNum, int secondNum, char operator) {
@@ -34,5 +34,17 @@ public class Calculator {
         return result;
     }
 
+    public List<Integer> getResults() {
+        return results;
+    }
 
-}
+    public void removeFirstResult() {
+        if (!results.isEmpty()) {
+            results.remove(0);
+            System.out.println("가장 오래된 연산 결과가 삭제 되었습니다.");
+        } else {
+            System.out.println("삭제할 결과가 없습니다.");
+
+        }
+        }
+    }
