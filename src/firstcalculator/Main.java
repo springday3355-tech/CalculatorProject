@@ -29,10 +29,15 @@ public class Main {
             if (exit.equals("exit")){
                 break;
             }
+            System.out.println("가장 오래된 결과를 삭제하시겠습니까? (remove 입력 시 삭제 / 아무키나 입력 시 계속)");
+            String command = sc.next();
+            if (command.equals("remove")) {
+                calc.removeFirstResult(); // 삭제 메서드 호출
+                extracted(calc);          // 삭제 후 리스트 다시 보여주기
+            }
         }
-
-
-
-
     }
-}
+    public  static void  extracted(Calculator calc) {
+        System.out.println("현재까지의 결과 리스트: " + calc.getResults());
+    }
+    }
