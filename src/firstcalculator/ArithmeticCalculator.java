@@ -1,30 +1,18 @@
 package firstcalculator;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 public class ArithmeticCalculator <T extends Number> {
     private List<Double> results = new ArrayList<>();
 
     public double calculate(T num1, T num2, OperatorType operator) {
-        double result = 0;
 
-        switch (operator) {
-            case ADD:
-                result = num1.doubleValue() + num2.doubleValue();
-                break;
-            case SUBTRACT:
-                result = num1.doubleValue() - num2.doubleValue();
-                break;
-            case MULTIPLY:
-                result = num1.doubleValue() * num2.doubleValue();
-                break;
-            case DIVIDE:
-                result = num1.doubleValue() / num2.doubleValue();
-                break;
-        }
+        double result = switch (operator) {
+            case ADD -> num1.doubleValue() + num2.doubleValue();
+            case SUBTRACT -> num1.doubleValue() - num2.doubleValue();
+            case MULTIPLY -> num1.doubleValue() * num2.doubleValue();
+            case DIVIDE -> num1.doubleValue() / num2.doubleValue();
+        };
+
         results.add(result);
         return result;
     }
@@ -32,7 +20,7 @@ public class ArithmeticCalculator <T extends Number> {
     public void printResultsGreaterThan(double threshold) {
         List<Double> num = results.stream()
                 .filter(n -> n > threshold) // 1.기준보다 큰 것만 필터링
-                .collect(Collectors.toList()); // 2. 리스트로 수집
+                .toList(); // 2. 리스트로 수집
         System.out.println(threshold + "보다 큰 결과들: " + num);
     }
 
