@@ -2,25 +2,23 @@ package firstcalculator;
 
 import java.util.Scanner;
 
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
+        ArithmeticCalculator<Double> calc = new ArithmeticCalculator<>();
         Scanner sc = new Scanner(System.in);
-
-        Calculator calc = new Calculator();
 
         while (true) {
             System.out.println("첫 번째 숫자를 입력하세요: ");
-            int firstNum = sc.nextInt();
+            Double firstNum = sc.nextDouble();
 
             System.out.println("두번째 숫자를 입력하세요: ");
-            int secondNum = sc.nextInt();
+            Double secondNum = sc.nextDouble();
 
             System.out.println("사칙 연산자를 입력하세요: ");
             char operator = sc.next().charAt(0);
+            OperatorType op = OperatorType.fromSymbol(operator);
 
-            int result = calc.calculate(firstNum, secondNum, operator);
+            double result = calc.calculate(firstNum, secondNum, op);
             System.out.println("결과: " + result);
             System.out.println("----------------------");
 
@@ -37,7 +35,7 @@ public class Main {
             }
         }
     }
-    public  static void  extracted(Calculator calc) {
+    public  static void  extracted(ArithmeticCalculator<Double> calc) {
         System.out.println("현재까지의 결과 리스트: " + calc.getResults());
     }
     }
