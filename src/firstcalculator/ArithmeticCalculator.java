@@ -1,6 +1,8 @@
 package firstcalculator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 public class ArithmeticCalculator <T extends Number> {
     private List<Double> results = new ArrayList<>();
 
@@ -15,13 +17,6 @@ public class ArithmeticCalculator <T extends Number> {
 
         results.add(result);
         return result;
-    }
-
-    public void printResultsGreaterThan(double threshold) {
-        List<Double> num = results.stream()
-                .filter(n -> n > threshold) // 1.기준보다 큰 것만 필터링
-                .toList(); // 2. 리스트로 수집
-        System.out.println(threshold + "보다 큰 결과들: " + num);
     }
 
     public List<Double> getResults() {
@@ -43,6 +38,12 @@ public class ArithmeticCalculator <T extends Number> {
                 .mapToDouble(Double::doubleValue)
                 .average()
                 .orElse(0.0);
+    }
+    public void printResultsGreaterThan(double threshold){
+        List<Double> num = results.stream()
+                .filter(n -> n > threshold)
+                .collect(Collectors.toList());
+        System.out.println(threshold + "보다 큰 결과들 : " + num);
     }
 
 }
