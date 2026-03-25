@@ -13,4 +13,13 @@ public enum OperatorType {
     public char getSymbol(){
         return symbol;
     }
+    public static OperatorType fromSymbol(char symbol){
+        for (OperatorType type : OperatorType.values()){
+            if (type.getSymbol() == symbol){
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("해당하는 연산자가 없습니다: " + symbol);
+
+    }
 }

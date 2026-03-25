@@ -48,5 +48,6 @@ public class ArithmeticCalculator <T extends Number> {
             System.out.println("삭제할 결과가 없습니다.");
 
         }
+
     }
 }
