@@ -27,6 +27,9 @@ public class Main {
             if (exit.equals("exit")){
                 break;
             }
+            double avg = calc.calculateAverage();
+            System.out.println("현재까지 모든 결과의 평균: " + avg);
+
             System.out.println("가장 오래된 결과를 삭제하시겠습니까? (remove 입력 시 삭제 / 아무키나 입력 시 계속)");
             String command = sc.next();
             if (command.equals("remove")) {
